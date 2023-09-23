@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Background
-  - Interactable
+  - 
+  - 
   - 
   - 
   - 
@@ -44,7 +44,7 @@ TagManager:
   - name: BackGround
     uniqueID: 3858156961
     locked: 0
-  - name: Over
+  - name: ForeGround
     uniqueID: 1070900779
     locked: 0
   - name: Interact
