@@ -10,10 +10,11 @@ public class PlayerAimWeapon : MonoBehaviour
 {
     [SerializeField] private Transform aimTransform;
 
-    private PlayerMovement playerMovement;
+    [SerializeField] float fireRate = 2f;
+    private WaitForSeconds shootDelay;
     private void Awake()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        shootDelay = new WaitForSeconds(1 / fireRate);
     }
     
     
@@ -37,6 +38,16 @@ public class PlayerAimWeapon : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("Shoot!");
+        Debug.Log("Shoot!"); 
+    }
+
+    // TODO: one shoot
+    public IEnumerator RapidFire()
+    {
+        while (true)
+        {
+            Shoot();
+            yield return shootDelay;
+        }
     }
 }

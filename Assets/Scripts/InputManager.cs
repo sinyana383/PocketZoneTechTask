@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// TODO: define one code style!
 public class InputManager : MonoBehaviour
 {
     private PlayerInput input;
@@ -11,7 +12,8 @@ public class InputManager : MonoBehaviour
 
     private PlayerMovement playerMovement;
     private PlayerAimWeapon playerAimWeapon;
-    
+
+    private Coroutine fireCoroutine;
     private void Awake()
     {
         input = new PlayerInput();
@@ -20,15 +22,29 @@ public class InputManager : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerAimWeapon = GetComponent<PlayerAimWeapon>();
         
-        playerActions.Shoot.performed += _ => playerAimWeapon.Shoot();
+        playerActions.Shoot.started += ctx => StartFiring();
+        playerActions.Shoot.canceled += ctx => StopFiring();
     }
 
+    // ??? Change to Update?
     private void FixedUpdate()
     {
         playerMovement.ProcessMove(playerActions.Move.ReadValue<Vector2>());
         playerAimWeapon.Aim(playerActions.Move.ReadValue<Vector2>());
     }
-    
+
+    void StartFiring()
+    {
+        fireCoroutine = StartCoroutine(playerAimWeapon.RapidFire());
+    }
+    void StopFiring()
+    {
+        if (fireCoroutine != null)
+        {
+            StopCoroutine(fireCoroutine);
+        }
+    }
+
     private void OnEnable()
     {
         playerActions.Enable();
