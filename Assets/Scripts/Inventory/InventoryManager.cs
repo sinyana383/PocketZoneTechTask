@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+// TODO organize scripts' names(UI) and folders
 public class InventoryManager : MonoBehaviour
 {
     public GameObject slotPrefab;
