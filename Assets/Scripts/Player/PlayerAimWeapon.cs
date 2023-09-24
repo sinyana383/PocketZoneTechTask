@@ -43,12 +43,18 @@ public class PlayerAimWeapon : MonoBehaviour
         aimTransform.eulerAngles = new Vector3(0, 0, angle);
         
         Vector3 aimLocalScale = Vector3.one;
+        Vector3 charLocalScale = Vector3.one;
         if (angle > 90 || angle < -90) {
             aimLocalScale.y = -1f;
+            aimLocalScale.x = -1f;
+            charLocalScale.x = -1f;
         } else {
             aimLocalScale.y = +1f;
+            aimLocalScale.x = +1f;
+            charLocalScale.x = +1f;
         }
         aimTransform.localScale = aimLocalScale;
+        transform.localScale = charLocalScale;
         // playerLookAt.SetLookAtPosition(mousePosition);
     }
 

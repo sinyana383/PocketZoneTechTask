@@ -9,7 +9,8 @@ public class Shoot : MonoBehaviour
     [SerializeField] private GameObject bulletTrail;
     
     [SerializeField] private float range = 40f;
-
+    // TODO : take damage from weapon data 
+    [SerializeField] private float damage = 2f;
     private void OnEnable()
     {
         PlayerAimWeapon.OnShoot += Fire;
@@ -21,10 +22,7 @@ public class Shoot : MonoBehaviour
 
     private void Fire(Vector3 gunEndPointPosition, Vector3 shootDirection)
     {
-        // Debug.Log(e.gunEndPointPosition + " " + e.shootDirection * range);
-        // Debug.DrawLine(e.gunEndPointPosition, 
-            // e.gunEndPointPosition + e.shootDirection * range, Color.white, 0.1f);
-            
+
         var hit = Physics2D.Raycast(gunEndPointPosition, 
             shootDirection, range);
 
@@ -37,7 +35,10 @@ public class Shoot : MonoBehaviour
         if (hit.collider != null)
         {
             trailScript.SetTargetPosition(hit.point);
-            // TODO hit the target
+            if (hit.collider.gameObject.TryGetComponent<IDamageable>(out IDamageable damObject))
+            {
+                damObject.TakeDamage(damage);
+            }
         }
         else
         {
