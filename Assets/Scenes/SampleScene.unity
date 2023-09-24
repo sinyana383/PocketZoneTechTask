@@ -7029,6 +7029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimTransform: {fileID: 547529870}
+  fireRate: 3
 --- !u!70 &2012280431
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
