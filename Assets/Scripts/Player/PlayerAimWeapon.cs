@@ -7,12 +7,9 @@ using UnityEngine.PlayerLoop;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
-    public event EventHandler<OnShootEventArgs> OnShoot;
-    public class OnShootEventArgs : EventArgs {
-        public Vector3 gunEndPointPosition;
-        public Vector3 shootDirection;
-    }
-    
+    public static event EventHandler OnShoot;
+    public delegate void EventHandler(Vector3 gunEndPointPosition, Vector3 shootDirection);
+
     [SerializeField] private Transform aimTransform;
     [SerializeField] private Transform aimGunEndPointTransform;
     
@@ -60,10 +57,7 @@ public class PlayerAimWeapon : MonoBehaviour
         aimAnimator.SetTrigger("Shoot");
         camAnimator.SetTrigger("Shake");
         
-        OnShoot?.Invoke(this, new OnShootEventArgs { 
-            gunEndPointPosition = aimGunEndPointTransform.position,
-            shootDirection = direction,
-        });
+        OnShoot?.Invoke(aimGunEndPointTransform.position, direction);
     }
 
     // TODO: one shoot
