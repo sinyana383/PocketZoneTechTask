@@ -12,11 +12,15 @@ public class Zombie : MonoBehaviour, IDamageable
     [SerializeField] private float health, maxHealth = 3f;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float viewDistance = 5f;
-    
+    [SerializeField] private float damage = 2f;
+    [SerializeField] private float damageRate = 1f;
+
     private Transform target;
     private Vector2 moveDirection;
 
-    private bool isPlayerSpotted = false;
+    public bool isPlayerSpotted = false;
+    
+    private Coroutine damageCoroutine;
     private void Awake()
     {
         healthBar = GetComponentInChildren<HealthBar>();
@@ -63,5 +67,36 @@ public class Zombie : MonoBehaviour, IDamageable
         {
             Destroy(gameObject);
         }
+        viewDistance += viewDistance;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.TryGetComponent(out IDamageable subject))
+        {
+            Debug.Log("Player entered trigger zone.");
+            // Maybe play animation
+            damageCoroutine = StartCoroutine(RapidDamage(subject));
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (damageCoroutine != null)
+        {
+            Debug.Log("Player exit trigger zone.");
+            StopCoroutine(damageCoroutine);
+        }
+    }
+
+    public IEnumerator RapidDamage(IDamageable subject)
+    {
+        while (true)
+        {
+            Debug.Log("Dealing damage...");
+            subject.TakeDamage(damage);
+            yield return new WaitForSeconds(1 / damageRate);
+        }
+    }
+    
 }

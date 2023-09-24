@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Shoot : MonoBehaviour
+public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private GameObject bulletTrail;
     
