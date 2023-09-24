@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Obstacles
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Interact
     uniqueID: 3704478631
+    locked: 0
+  - name: UI
+    uniqueID: 2259225179
     locked: 0

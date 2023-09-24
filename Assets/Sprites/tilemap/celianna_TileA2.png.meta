@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -120,8 +132,8 @@ TextureImporter:
       name: celianna_TileA2_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 368
+        x: 151
+        y: 296
         width: 16
         height: 16
       alignment: 0
@@ -12465,100 +12477,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: celianna_TileA2_588
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 4, y: 8}
-        - {x: 3, y: 7}
-        - {x: 3, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6259bd891a8f79c438820285d10c9bd6
-      internalID: -335972328
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_589
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: -4, y: -8}
-        - {x: -4, y: 7}
-        - {x: -5, y: 8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19e42178368e40f4cad020081dc2066b
-      internalID: 1448506881
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_590
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a616ab974642a2f4fb6e85ac6e1d89b1
-      internalID: -142085380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_591
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7709cbee30a55a4589e4dbbc6dfc659
-      internalID: -985499340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: celianna_TileA2_592
       rect:
         serializedVersion: 2
@@ -13153,12 +13071,17 @@ TextureImporter:
         x: 320
         y: 64
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 3, y: -7}
+        - {x: 3, y: -7}
+        - {x: 3, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: -7}
       tessellationDetail: 0
       bones: []
       spriteID: cccd71a83846e474cadcddb544ccaf37
@@ -13174,12 +13097,18 @@ TextureImporter:
         x: 336
         y: 64
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -7}
+        - {x: -8, y: -16}
+        - {x: -6, y: -16}
+        - {x: -4, y: -14}
+        - {x: -4, y: -7}
+        - {x: -4, y: -7}
       tessellationDetail: 0
       bones: []
       spriteID: c7be2d81eb9c940458740f0b90b9e65d
@@ -13195,12 +13124,16 @@ TextureImporter:
         x: 352
         y: 64
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -6}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: -6}
       tessellationDetail: 0
       bones: []
       spriteID: 78ef4afe49ced3d408b0b64b33f4f000
@@ -13216,16 +13149,16 @@ TextureImporter:
         x: 368
         y: 64
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -8, y: -3}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: -3}
+      - - {x: -8, y: -7}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: -7}
       tessellationDetail: 0
       bones: []
       spriteID: 6f6727a1b21051f4c8bc345a0fa74a9e
@@ -13818,98 +13751,6 @@ TextureImporter:
       bones: []
       spriteID: aa61d9c241346f34d827a65b3fab69c9
       internalID: 1518629489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_652
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6fc0151a5e6c964699e3712fa95bf23
-      internalID: -838656287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_653
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9890e2fee849bc94a96e60aa6382dd34
-      internalID: 400897136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_654
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ccbfae60100bca438066b2d70d36b5b
-      internalID: 311557997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_655
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b43669056896d6d46aa388e16d784d94
-      internalID: 126729979
       vertices: []
       indices: 
       edges: []
@@ -14509,12 +14350,17 @@ TextureImporter:
         x: 320
         y: 32
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 4, y: 16}
+        - {x: 3, y: 15}
+        - {x: 3, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: f4f0902ff4ed07d4299a7303fad3a596
@@ -14530,16 +14376,16 @@ TextureImporter:
         x: 336
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -8, y: -3}
-        - {x: -8, y: -8}
+      - - {x: -8, y: -8}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
         - {x: 8, y: -8}
-        - {x: 8, y: -3}
       tessellationDetail: 0
       bones: []
       spriteID: 632f23f06df02cf47bb7edc67d5b2a7c
@@ -14555,12 +14401,16 @@ TextureImporter:
         x: 352
         y: 32
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: e566835ab9ecf4648858ac575cb891b6
@@ -14576,12 +14426,17 @@ TextureImporter:
         x: 368
         y: 32
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 16}
+        - {x: -8, y: -16}
+        - {x: -4, y: -16}
+        - {x: -4, y: 15}
+        - {x: -5, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 748f4cfac1dd106459fd0c2276f24f90
@@ -15174,98 +15029,6 @@ TextureImporter:
       bones: []
       spriteID: a86fa1a537e4fb44e938fa9454954f68
       internalID: -99105006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_716
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9cefecf3a74639f4387a414a2aa89f91
-      internalID: 1148685876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_717
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e235d22e480c32468e85eb806d1bb9b
-      internalID: 1233141859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_718
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: -8, y: -8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: -8}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22c3f1004a79de642a0260b9a196f66f
-      internalID: -570213045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: celianna_TileA2_719
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c7b9374080720144b435f99815d6c38
-      internalID: 1986632917
       vertices: []
       indices: 
       edges: []
@@ -15865,12 +15628,16 @@ TextureImporter:
         x: 320
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 3, y: 16}
+        - {x: 3, y: -16}
+        - {x: 8, y: -16}
+        - {x: 8, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 3541b1681c80e1142ae777be8c2ba8c4
@@ -15886,16 +15653,16 @@ TextureImporter:
         x: 336
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -8, y: -3}
-        - {x: -8, y: -8}
+      - - {x: -8, y: -8}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
         - {x: 8, y: -8}
-        - {x: 8, y: -3}
       tessellationDetail: 0
       bones: []
       spriteID: b826126169895c045b73e1439486b387
@@ -15911,16 +15678,16 @@ TextureImporter:
         x: 352
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -8, y: -3}
-        - {x: -8, y: -8}
+      - - {x: -8, y: -8}
+        - {x: -8, y: -16}
+        - {x: 8, y: -16}
         - {x: 8, y: -8}
-        - {x: 8, y: -3}
       tessellationDetail: 0
       bones: []
       spriteID: 93460e7737eaff947a74e9084fd55ab1
@@ -15936,12 +15703,17 @@ TextureImporter:
         x: 368
         y: 0
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: 16}
+        - {x: -8, y: -16}
+        - {x: -5, y: -16}
+        - {x: -4, y: -15}
+        - {x: -4, y: 16}
       tessellationDetail: 0
       bones: []
       spriteID: 923b67e216fed6a438263f70c689bb4a

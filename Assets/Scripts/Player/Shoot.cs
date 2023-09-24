@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
 {
     [SerializeField] private GameObject bulletTrail;
     
+    [SerializeField] private LayerMask layerMask;
     [SerializeField] private float range = 40f;
     // TODO : take damage from weapon data 
     [SerializeField] private float damage = 2f;
@@ -24,7 +25,7 @@ public class Shoot : MonoBehaviour
     {
 
         var hit = Physics2D.Raycast(gunEndPointPosition, 
-            shootDirection, range);
+            shootDirection, range, layerMask.value);
 
         float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
 

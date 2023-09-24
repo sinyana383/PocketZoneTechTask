@@ -13,11 +13,6 @@ public class HealthBar : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     public void UpdateHealthBar(float currantValue, float maxValue)
     {
         slider.value = currantValue / maxValue;

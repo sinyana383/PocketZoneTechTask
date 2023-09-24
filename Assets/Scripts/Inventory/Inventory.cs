@@ -8,7 +8,6 @@ public class Inventory : MonoBehaviour
     // When smth happens with inventory it invokes ui changes
     public static event Action<List<InventoryItem>> OnInventoryChange;
     
-    // ??? for what this list exists? why not itemDictionary enough?
     public List<InventoryItem> inventory = new List<InventoryItem>();
     private Dictionary<ItemData, InventoryItem> itemDictionary = new Dictionary<ItemData, InventoryItem>();
 
