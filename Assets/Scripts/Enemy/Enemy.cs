@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private float health, maxHealth = 3f;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float viewDistance = 5f;
-    [SerializeField] private float damage = 2f;
+    [SerializeField] private float damage = 1f;
     [SerializeField] private float damageRate = 1f;
 
     private Transform target;
@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         health = maxHealth;
         healthBar.UpdateHealthBar(health, maxHealth);
+        StartCoroutine(RapidDamage(player.GetComponent<IDamageable>()));
     }
 
     private void Update()
@@ -76,37 +77,28 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.TryGetComponent(out IDamageable subject) 
-            && !isDamaging && damageCoroutine == null)
+        if (other.gameObject.TryGetComponent(out IDamageable subject) && !isDamaging)
         {
-            // Maybe play animation
             isDamaging = true;
-            damageCoroutine = StartCoroutine(RapidDamage(subject));
-            Debug.Log("Entered trigger zone, started coroutine.");
         }
     }
-
+    
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (damageCoroutine != null && 
-            other.gameObject.TryGetComponent<IDamageable>(out var dam))
+        if (other.gameObject.TryGetComponent<IDamageable>(out var dam))
         {
             isDamaging = false;
-            StopCoroutine(damageCoroutine);
-            damageCoroutine = null;
-            Debug.Log("Exited trigger zone, stopped coroutine.");
         }
     }
 
     public IEnumerator RapidDamage(IDamageable subject)
     {
-        Debug.Log("Started");
-        while (isDamaging)
+        
+        while (true)
         {
-            Debug.Log("Dealing");
-            subject.TakeDamage(damage);
+            if (isDamaging)
+                subject.TakeDamage(damage);
             yield return new WaitForSeconds(1 / damageRate);
         }
     }
-    
 }
