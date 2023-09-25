@@ -6,9 +6,26 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
+    public delegate void EventHandler(ItemData data, int num);
+    public static event EventHandler OnItemCompleteRemove;
+
+    [SerializeField] private GameObject delButton;
+    
+    private InventoryItem curItem = null;
     public Image icon;
     public TextMeshProUGUI stackSize;
 
+    public void ShowDeleteButton()
+    {
+        delButton.SetActive(true);
+    }
+
+    public void CompleteRemoveItem()
+    {
+        if (curItem != null)
+            OnItemCompleteRemove?.Invoke(curItem.itemData, curItem.stackSize);
+        delButton.SetActive(false);
+    }
     public void ClearSlot()
     {
         icon.enabled = false;
@@ -17,6 +34,7 @@ public class InventorySlot : MonoBehaviour
 
     public void DrawSlot(InventoryItem item)
     {
+        curItem = item;
         if (item == null)
         {
             ClearSlot();

@@ -7,8 +7,10 @@ using UnityEngine.PlayerLoop;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
-    public static event EventHandler OnShoot;
-    public delegate void EventHandler(Vector3 gunEndPointPosition, Vector3 shootDirection);
+    public delegate void ShootEventHandler(Vector3 gunEndPointPosition, Vector3 shootDirection);
+    public delegate void AnotherEventHandler(ItemData data, int num);
+    public static event ShootEventHandler OnShoot;
+    public static event AnotherEventHandler OnShootBullets;
 
     [SerializeField] private Transform aimTransform;
     [SerializeField] private Transform aimGunEndPointTransform;
@@ -19,6 +21,23 @@ public class PlayerAimWeapon : MonoBehaviour
     [SerializeField] float fireRate = 2f;
     private WaitForSeconds shootDelay;
     private Vector3 direction = Vector3.right;
+
+    private bool haveBullets = false;
+
+    [SerializeField]public ItemData curBullets;
+    // may add curWeapon ref
+
+    private void OnEnable()
+    {
+        Inventory.OnInventoryChangeToBullets += ChangeBulletFlag;
+    }
+
+    private void OnDisable()
+    {
+        Inventory.OnInventoryChangeToBullets -= ChangeBulletFlag;
+    }
+
+    public void ChangeBulletFlag(bool state) => haveBullets = state;
     private void Awake()
     {
         aimAnimator = aimTransform.GetComponent<Animator>();
@@ -61,19 +80,20 @@ public class PlayerAimWeapon : MonoBehaviour
     public void Shoot()
     {
         aimAnimator.SetTrigger("Shoot");
-        camAnimator.SetTrigger("Shake");
-        
-        
+
         OnShoot?.Invoke(aimGunEndPointTransform.position, direction);
+        OnShootBullets?.Invoke(curBullets, 1);
     }
 
     // TODO: one shoot
     public IEnumerator RapidFire()
     {
-        while (true)
+        // haveBullets
+        while (haveBullets)
         {
             Shoot();
             yield return shootDelay;
         }
+        yield break;
     }
 }

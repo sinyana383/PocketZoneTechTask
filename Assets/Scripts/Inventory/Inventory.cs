@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour
 {
     // When smth happens with inventory it invokes ui changes
     public static event Action<List<InventoryItem>> OnInventoryChange;
+    public static event EventHandler OnInventoryChangeToBullets;
+    public delegate void EventHandler(bool state);
     
     public List<InventoryItem> inventory = new List<InventoryItem>();
     private Dictionary<ItemData, InventoryItem> itemDictionary = new Dictionary<ItemData, InventoryItem>();
@@ -15,13 +17,16 @@ public class Inventory : MonoBehaviour
     {
         AK74Bullets.OnAk74BulletsCollected += Add;
         MakarovPistol.OnMakarovPistolCollected += Add;
+        PlayerAimWeapon.OnShootBullets += Remove;
+        InventorySlot.OnItemCompleteRemove += Remove;
     }
 
     private void OnDisable()
     {
-        // On disable Add() wouldn't be invoked 
         AK74Bullets.OnAk74BulletsCollected -= Add;
         MakarovPistol.OnMakarovPistolCollected -= Add;
+        PlayerAimWeapon.OnShootBullets -= Remove;
+        InventorySlot.OnItemCompleteRemove -= Remove;
     }
 
     public void Add(ItemData itemData, int number)
@@ -39,6 +44,7 @@ public class Inventory : MonoBehaviour
             itemDictionary.Add(itemData, newItem);
             Debug.Log($"Added {itemData.displayName} to the inventory");
             OnInventoryChange?.Invoke(inventory);
+            OnInventoryChangeToBullets?.Invoke(true);
         }
     }
 
@@ -47,14 +53,26 @@ public class Inventory : MonoBehaviour
         if (itemDictionary.TryGetValue(itemData, out InventoryItem invItem))
         {
             invItem.RemoveFromStack(number);
-            if (invItem.stackSize == 0)
+            if (invItem.stackSize <= 0)
             {
                 inventory.Remove(invItem);
                 itemDictionary.Remove(itemData);
+                OnInventoryChangeToBullets?.Invoke(false);
             }
             OnInventoryChange?.Invoke(inventory);
         }
 
+    }
+
+    public void CompleteRemove(ItemData itemData)
+    {
+        if (itemDictionary.TryGetValue(itemData, out InventoryItem invItem))
+        {
+            inventory.Remove(invItem);
+            itemDictionary.Remove(itemData);
+            OnInventoryChangeToBullets?.Invoke(false);
+            OnInventoryChange?.Invoke(inventory);
+        }
     }
     
 }
