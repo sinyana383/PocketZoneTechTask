@@ -1289,6 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5faa2b14175da49a95a4029127be14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 0}
   healthBar: {fileID: 0}
   health: 0
   maxHealth: 50
@@ -1305,7 +1306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveVector: {x: 0, y: 0}
-  moveSpeed: 7
+  moveSpeed: 5
 --- !u!50 &3227405418391399003
 Rigidbody2D:
   serializedVersion: 4
