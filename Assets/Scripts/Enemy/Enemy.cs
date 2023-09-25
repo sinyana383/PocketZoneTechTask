@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private HealthBar healthBar;
-    [SerializeField] private GameObject player;
+    [SerializeField] private Player player;
     [SerializeField] private Transform ground;
 
     [SerializeField] private float health, maxHealth = 3f;
@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        player = FindObjectOfType<Player>();
+        
         health = maxHealth;
         healthBar.UpdateHealthBar(health, maxHealth);
         StartCoroutine(RapidDamage(player.GetComponent<IDamageable>()));
