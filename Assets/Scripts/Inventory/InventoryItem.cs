@@ -9,19 +9,19 @@ public class InventoryItem
     public ItemData itemData;
     public int stackSize;
 
-    public InventoryItem(ItemData item)
+    public InventoryItem(ItemData item, int num)
     {
         itemData = item;
-        AddToStack();
+        AddToStack(num);
     }
 
-    public void AddToStack()
+    public void AddToStack(int num)
     {
-        ++stackSize;
+        stackSize += num;
     }
     
-    public void RemoveFromStack()
+    public void RemoveFromStack(int num)
     {
-        --stackSize;
+        stackSize -= num;
     }
 }

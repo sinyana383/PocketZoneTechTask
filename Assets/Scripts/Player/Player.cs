@@ -22,7 +22,6 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
-        Debug.Log(health);
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {

@@ -24,17 +24,17 @@ public class Inventory : MonoBehaviour
         MakarovPistol.OnMakarovPistolCollected -= Add;
     }
 
-    public void Add(ItemData itemData)
+    public void Add(ItemData itemData, int number)
     {
         if (itemDictionary.TryGetValue(itemData, out InventoryItem invItem))
         {
-            invItem.AddToStack();
+            invItem.AddToStack(number);
             Debug.Log($"{invItem.itemData.displayName} total stack is now {invItem.stackSize}");
             OnInventoryChange?.Invoke(inventory);
         }
         else
         {
-            InventoryItem newItem = new InventoryItem(itemData);
+            InventoryItem newItem = new InventoryItem(itemData, number);
             inventory.Add(newItem);
             itemDictionary.Add(itemData, newItem);
             Debug.Log($"Added {itemData.displayName} to the inventory");
@@ -42,11 +42,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void Remove(ItemData itemData)
+    public void Remove(ItemData itemData, int number)
     {
         if (itemDictionary.TryGetValue(itemData, out InventoryItem invItem))
         {
-            invItem.RemoveFromStack();
+            invItem.RemoveFromStack(number);
             if (invItem.stackSize == 0)
             {
                 inventory.Remove(invItem);

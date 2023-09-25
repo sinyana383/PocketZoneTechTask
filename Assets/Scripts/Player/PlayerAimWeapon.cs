@@ -63,6 +63,7 @@ public class PlayerAimWeapon : MonoBehaviour
         aimAnimator.SetTrigger("Shoot");
         camAnimator.SetTrigger("Shake");
         
+        
         OnShoot?.Invoke(aimGunEndPointTransform.position, direction);
     }
 
