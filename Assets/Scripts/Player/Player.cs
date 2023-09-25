@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable
 {
+    [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private float health, maxHealth = 50f;
-
+    
     private bool isGameOver = false;
     private void Awake()
     {
         healthBar = GetComponentInChildren<HealthBar>();
+        gameOverScreen.SetActive(false);
     }
 
     private void Start()
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Gameover()
     {
-        // TODO: Disable controls and enable gameover screen
+        Time.timeScale = 0;
+        gameOverScreen.SetActive(true);
     }
 }
