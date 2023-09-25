@@ -18,6 +18,7 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        Time.timeScale = 1;
         health = maxHealth;
     }
 
