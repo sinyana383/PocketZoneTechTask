@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private TextMeshProUGUI textMeshProText;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private float health, maxHealth = 50f;
 
@@ -15,13 +17,13 @@ public class Player : MonoBehaviour, IDamageable
     private void Awake()
     {
         LoadData();
-        Debug.Log(gameData.playerDeathCount);
         healthBar = GetComponentInChildren<HealthBar>();
         gameOverScreen.SetActive(false);
     }
 
     private void Start()
     {
+        textMeshProText.text = "Total Deaths: " + gameData.playerDeathCount.ToString();
         Time.timeScale = 1;
         health = maxHealth;
     }
