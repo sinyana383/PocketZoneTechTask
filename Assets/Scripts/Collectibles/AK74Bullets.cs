@@ -13,6 +13,8 @@ public class AK74Bullets : MonoBehaviour, ICollectible
     public ItemData ak74BulletsData;
     public int minNum = 20;
     public int maxNum = 100;
+    
+    public ItemData GetItemData() => ak74BulletsData;
     public void Collect()
     {
         Destroy(gameObject);

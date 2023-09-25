@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // ??? Maybe IDamageable
 public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private GameObject player;
+    [SerializeField] private Transform ground;
 
     [SerializeField] private float health, maxHealth = 3f;
     [SerializeField] private float moveSpeed = 5f;
@@ -66,6 +68,7 @@ public class Enemy : MonoBehaviour, IDamageable
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
+            GetComponent<LootBag>().InstantiateLoot(ground.position);
             Destroy(gameObject);
         }
         viewDistance += viewDistance;

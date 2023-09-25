@@ -125,3 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ak74BulletsData: {fileID: 11400000, guid: f6654806c84895745b833ea426eb8597, type: 2}
+  minNum: 20
+  maxNum: 100

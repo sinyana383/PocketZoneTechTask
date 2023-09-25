@@ -8,6 +8,7 @@ public class MakarovPistol : MonoBehaviour, ICollectible
     public delegate void HandleMakarovPistolCollected(ItemData itemData, int number);
 
     public ItemData makarovPistolData;
+    public ItemData GetItemData() => makarovPistolData;
     public void Collect()
     {
         Destroy(gameObject);

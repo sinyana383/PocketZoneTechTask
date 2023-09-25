@@ -21,7 +21,7 @@ public class InventorySlot : MonoBehaviour
     }
 
     public void CompleteRemoveItem()
-    {
+     {
         if (curItem != null)
             OnItemCompleteRemove?.Invoke(curItem.itemData, curItem.stackSize);
         delButton.SetActive(false);

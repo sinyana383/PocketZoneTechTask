@@ -1339,7 +1339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0.000047713384, y: 0.043371294, z: 0.0000020713403, w: 0.999059}
-  m_LocalPosition: {x: -4.509239, y: -13.338925, z: -0.50449276}
+  m_LocalPosition: {x: -4.4851375, y: -13.338925, z: -0.50658894}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6787,6 +6787,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 68476225610382311, guid: ffacfc3b2717acb4abdf64f658938154, type: 3}
   m_PrefabInstance: {fileID: 678685697}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1138557789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2904019053922765089, guid: 0dab7253a2e32e24297107e8a5ab32eb, type: 3}
+  m_PrefabInstance: {fileID: 2904019054996473467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1152944926
 GameObject:
   m_ObjectHideFlags: 0
@@ -8296,6 +8301,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.35759318, y: -1.7190897}
   m_Size: {x: 0.7974694, y: 3.862001}
   m_Direction: 0
+--- !u!114 &1775519318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775519308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ace812a2091dae409dd38169a183a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootObjects:
+  - {fileID: 7219008715540052749, guid: 51ef4c08774b3f940a8e8fc9468abf90, type: 3}
+  - {fileID: 6317342247547303484, guid: 2a9c1579e7cc1ae4b80fe8c90d9ddf51, type: 3}
+  dropItemForce: 19.36
 --- !u!4 &1806436572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7219008715540052977, guid: 51ef4c08774b3f940a8e8fc9468abf90, type: 3}
@@ -8622,6 +8643,7 @@ MonoBehaviour:
   aimGunEndPointTransform: {fileID: 877518279}
   camAnimator: {fileID: 519420033}
   fireRate: 5
+  curBullets: {fileID: 11400000, guid: f6654806c84895745b833ea426eb8597, type: 2}
 --- !u!70 &2012280431
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -8965,6 +8987,10 @@ PrefabInstance:
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 795512797444828300, guid: 0dab7253a2e32e24297107e8a5ab32eb, type: 3}
+      propertyPath: ground
+      value: 
+      objectReference: {fileID: 1138557789}
     - target: {fileID: 795512797444828300, guid: 0dab7253a2e32e24297107e8a5ab32eb, type: 3}
       propertyPath: player
       value: 
