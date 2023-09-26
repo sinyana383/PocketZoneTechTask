@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] private UIHealthBar uiHealthBar;
+    [SerializeField] private LevelLogic levelLogic;
     [SerializeField] private Player player;
     [SerializeField] private Transform ground;
 
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        levelLogic = FindObjectOfType<LevelLogic>();
         
         health = maxHealth;
         uiHealthBar.UpdateHealthBar(health, maxHealth);
@@ -71,6 +73,7 @@ public class Enemy : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             GetComponent<LootBag>().InstantiateLoot(ground.position);
+            levelLogic.MinusEnemyCount();
             Destroy(gameObject);
         }
         viewDistance += viewDistance;

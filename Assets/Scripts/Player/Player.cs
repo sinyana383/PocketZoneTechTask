@@ -44,6 +44,13 @@ public class Player : MonoBehaviour, IDamageable
         gameOverScreen.SetActive(true);
         SaveData();
     }
+    
+    public void Win()
+    {
+        Time.timeScale = 0;
+        gameOverScreen.SetActive(true);
+        SaveData();
+    }
 
     void SaveData()
     {
