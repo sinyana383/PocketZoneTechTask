@@ -1468,6 +1468,18 @@ PrefabInstance:
       propertyPath: gameOverTitle
       value: 
       objectReference: {fileID: 110631601}
+    - target: {fileID: 721873403, guid: ef9069a1bd97fd94caa949cd79f43fee, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 692638452}
+    - target: {fileID: 721873403, guid: ef9069a1bd97fd94caa949cd79f43fee, type: 3}
+      propertyPath: totalDeathsText
+      value: 
+      objectReference: {fileID: 558488741}
+    - target: {fileID: 721873403, guid: ef9069a1bd97fd94caa949cd79f43fee, type: 3}
+      propertyPath: dataSessionsFileName
+      value: gameData.json
+      objectReference: {fileID: 0}
     - target: {fileID: 6260515493401533412, guid: ef9069a1bd97fd94caa949cd79f43fee, type: 3}
       propertyPath: m_Name
       value: LogicManager
