@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.PlayerLoop;
@@ -21,6 +22,7 @@ public class PlayerAimWeapon : MonoBehaviour
     
     private Animator aimAnimator;
     [SerializeField] private Animator camAnimator;
+    [SerializeField] private CinemachineShake virCam;
     
     [SerializeField] float fireRate = 2f;
     private WaitForSeconds shootDelay;
@@ -79,6 +81,7 @@ public class PlayerAimWeapon : MonoBehaviour
     public void Shoot()
     {
         aimAnimator.SetTrigger("Shoot");
+        virCam.ShakeCamera(1f, 1f);
 
         OnShoot?.Invoke(aimGunEndPointTransform.position, direction);
         OnShootBullets?.Invoke(curBullets, 1);

@@ -808,7 +808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3227405417532471480}
-  - component: {fileID: 3227405417532471481}
+  - component: {fileID: 9190161103988085463}
   m_Layer: 0
   m_Name: Aiming Part
   m_TagString: Untagged
@@ -834,7 +834,7 @@ Transform:
   m_Father: {fileID: 3227405418391399005}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &3227405417532471481
+--- !u!95 &9190161103988085463
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -1289,9 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5faa2b14175da49a95a4029127be14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 0}
-  textMeshProText: {fileID: 0}
-  healthBar: {fileID: 0}
+  uiHealthBar: {fileID: 0}
   health: 0
   maxHealth: 50
 --- !u!114 &3227405418391399002
@@ -1341,11 +1339,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 734f5d54fadb6004788b7387c3db50fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curBullets: {fileID: 11400000, guid: f6654806c84895745b833ea426eb8597, type: 2}
   aimTransform: {fileID: 3227405417532471480}
   aimGunEndPointTransform: {fileID: 3227405417342484977}
   camAnimator: {fileID: 0}
+  virCam: {fileID: 0}
   fireRate: 5
-  curBullets: {fileID: 11400000, guid: f6654806c84895745b833ea426eb8597, type: 2}
 --- !u!70 &3227405418391399001
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1430,7 +1429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3227405418464678136}
   m_Layer: 0
-  m_Name: Aiming Sprites
+  m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

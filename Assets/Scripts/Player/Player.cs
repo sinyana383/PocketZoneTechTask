@@ -13,6 +13,8 @@ public class Player : MonoBehaviour, IDamageable
     [SerializeField] private UIHealthBar uiHealthBar;
     [SerializeField] private float health, maxHealth = 50f;
     
+    [SerializeField] private CinemachineShake virCam;
+    
     private void Awake()
     {
         uiHealthBar = GetComponentInChildren<UIHealthBar>();
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damageAmount)
     {
+        virCam.ShakeCamera(1f, 1f);
         health -= damageAmount;
         uiHealthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
