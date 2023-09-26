@@ -539,11 +539,11 @@ PrefabInstance:
       objectReference: {fileID: 2012280427}
     - target: {fileID: 2019992078789695084, guid: cdc61f005f19f2e478266e8215c28897, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.1989703
+      value: -5.3814273
       objectReference: {fileID: 0}
     - target: {fileID: 2019992078789695084, guid: cdc61f005f19f2e478266e8215c28897, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.341886
+      value: -13.344385
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdc61f005f19f2e478266e8215c28897, type: 3}
@@ -1329,6 +1329,10 @@ PrefabInstance:
     - target: {fileID: 692638454, guid: 94edeb3fbed40cc4395dd01b9d4734ef, type: 3}
       propertyPath: m_Color.a
       value: 0.80784315
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529106739251516632, guid: 94edeb3fbed40cc4395dd01b9d4734ef, type: 3}
+      propertyPath: m_MovementRange
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7529106739491148646, guid: 94edeb3fbed40cc4395dd01b9d4734ef, type: 3}
       propertyPath: m_AnchorMax.y

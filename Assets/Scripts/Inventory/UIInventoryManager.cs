@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-// TODO organize scripts' names(UI) and folders
-public class InventoryManager : MonoBehaviour
+public class UIInventoryManager : MonoBehaviour
 {
     public GameObject slotPrefab;
-    public List<InventorySlot> inventorySlots = new List<InventorySlot>();
+    public List<UIInventorySlot> inventorySlots = new List<UIInventorySlot>();
 
     [SerializeField] private int inventoryCapacity;
 
@@ -29,7 +28,7 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(childTransform.gameObject);
         }
-        inventorySlots = new List<InventorySlot>();
+        inventorySlots = new List<UIInventorySlot>();
     }
 
     void DrawInventory(List<InventoryItem> inventory)
@@ -50,7 +49,7 @@ public class InventoryManager : MonoBehaviour
         GameObject newSlot = Instantiate(slotPrefab);
         newSlot.transform.SetParent(transform, false);
 
-        InventorySlot newSlotComponent = newSlot.GetComponent<InventorySlot>();
+        UIInventorySlot newSlotComponent = newSlot.GetComponent<UIInventorySlot>();
         newSlotComponent.ClearSlot();
         
         inventorySlots.Add(newSlotComponent);

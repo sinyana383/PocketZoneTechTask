@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 3227405417040470389}
   - component: {fileID: 3227405417040470388}
   m_Layer: 6
-  m_Name: Canvas (1)
+  m_Name: Healthbar Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -486,7 +486,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3227405418391399005}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3227405417160399118
 MonoBehaviour:
@@ -797,7 +797,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3227405417532471480}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3227405417532471483
 GameObject:
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 3227405417532471480}
   - component: {fileID: 3227405417532471481}
   m_Layer: 0
-  m_Name: Aim
+  m_Name: Aiming Part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -828,9 +828,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3227405417342484977}
   - {fileID: 3227405418037164402}
   - {fileID: 3227405418464678136}
-  - {fileID: 3227405417342484977}
   m_Father: {fileID: 3227405418391399005}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 3227405417901988601}
   - component: {fileID: 3227405417901988582}
   m_Layer: 0
-  m_Name: Body
+  m_Name: Body Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1057,7 @@ Transform:
   - {fileID: 3227405416894710584}
   - {fileID: 3227405418772675367}
   m_Father: {fileID: 3227405418391399005}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3227405417901988582
 SpriteRenderer:
@@ -1141,7 +1141,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3227405417532471480}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3227405418037164403
 SpriteRenderer:
@@ -1271,8 +1271,8 @@ Transform:
   m_Children:
   - {fileID: 3227405417040470391}
   - {fileID: 3227405417532471480}
-  - {fileID: 3227405417160399119}
   - {fileID: 3227405417901988601}
+  - {fileID: 3227405417160399119}
   - {fileID: 3227405417332575126}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1290,6 +1290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverScreen: {fileID: 0}
+  textMeshProText: {fileID: 0}
   healthBar: {fileID: 0}
   health: 0
   maxHealth: 50
@@ -1429,7 +1430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3227405418464678136}
   m_Layer: 0
-  m_Name: Visual
+  m_Name: Aiming Sprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1451,7 +1452,7 @@ Transform:
   - {fileID: 3227405417675398302}
   - {fileID: 3227405417656485899}
   m_Father: {fileID: 3227405417532471480}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3227405418772675366
 GameObject:

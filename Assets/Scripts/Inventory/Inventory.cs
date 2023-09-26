@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
         AK74Bullets.OnAk74BulletsCollected += Add;
         MakarovPistol.OnMakarovPistolCollected += Add;
         PlayerAimWeapon.OnShootBullets += Remove;
-        InventorySlot.OnItemCompleteRemove += Remove;
+        UIInventorySlot.OnItemCompleteRemove += Remove;
     }
 
     private void OnDisable()
@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
         AK74Bullets.OnAk74BulletsCollected -= Add;
         MakarovPistol.OnMakarovPistolCollected -= Add;
         PlayerAimWeapon.OnShootBullets -= Remove;
-        InventorySlot.OnItemCompleteRemove -= Remove;
+        UIInventorySlot.OnItemCompleteRemove -= Remove;
     }
 
     public void Add(ItemData itemData, int number)

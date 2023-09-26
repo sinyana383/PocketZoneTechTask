@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 // ??? Maybe IDamageable
 public class Enemy : MonoBehaviour, IDamageable
 {
-    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private UIHealthBar uiHealthBar;
     [SerializeField] private Player player;
     [SerializeField] private Transform ground;
 
@@ -22,11 +22,10 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public bool isPlayerSpotted = false;
     public bool isDamaging = false;
-
-    private Coroutine damageCoroutine = null;
+    
     private void Awake()
     {
-        healthBar = GetComponentInChildren<HealthBar>();
+        uiHealthBar = GetComponentInChildren<UIHealthBar>();
     }
 
     private void Start()
@@ -34,7 +33,7 @@ public class Enemy : MonoBehaviour, IDamageable
         player = FindObjectOfType<Player>();
         
         health = maxHealth;
-        healthBar.UpdateHealthBar(health, maxHealth);
+        uiHealthBar.UpdateHealthBar(health, maxHealth);
         StartCoroutine(RapidDamage(player.GetComponent<IDamageable>()));
     }
 
@@ -68,7 +67,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
-        healthBar.UpdateHealthBar(health, maxHealth);
+        uiHealthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
             GetComponent<LootBag>().InstantiateLoot(ground.position);

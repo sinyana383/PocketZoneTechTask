@@ -3,21 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private TextMeshProUGUI textMeshProText;
-    [SerializeField] private HealthBar healthBar;
+    [FormerlySerializedAs("healthBar")] [SerializeField] private UIHealthBar uiHealthBar;
     [SerializeField] private float health, maxHealth = 50f;
 
     GameData gameData = new GameData();
-
-    private bool isGameOver = false;
     private void Awake()
     {
         LoadData();
-        healthBar = GetComponentInChildren<HealthBar>();
+        uiHealthBar = GetComponentInChildren<UIHealthBar>();
         gameOverScreen.SetActive(false);
     }
 
@@ -31,10 +30,9 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(float damageAmount)
     {
         health -= damageAmount;
-        healthBar.UpdateHealthBar(health, maxHealth);
+        uiHealthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
-            isGameOver = true;
             Gameover();
         }
     }

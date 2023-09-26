@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 public class LootBag : MonoBehaviour
 {
     public List<GameObject> lootObjects = new List<GameObject>();
-    [SerializeField] private float dropItemForce = 300f;
 
     GameObject GetDroppedItem()
     {

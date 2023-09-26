@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour
+public class UIInventorySlot : MonoBehaviour
 {
     public delegate void EventHandler(ItemData data, int num);
     public static event EventHandler OnItemCompleteRemove;
