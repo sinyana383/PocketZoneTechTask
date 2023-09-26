@@ -11,10 +11,8 @@ public class SceneManage : MonoBehaviour
     
     public void ReloadCurrentScene()
     {
-        // Get the current scene's build index
         int currentSceneBuildIndex = scene.buildIndex;
-
-        // Load the current scene again by its build index
+        
         SceneManager.LoadScene(currentSceneBuildIndex);
     }
 }

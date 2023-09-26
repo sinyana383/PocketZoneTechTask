@@ -414,6 +414,10 @@ PrefabInstance:
       propertyPath: camAnimator
       value: 
       objectReference: {fileID: 519420033}
+    - target: {fileID: 3227405418391399002, guid: 0a76399728d2a414b9fd49f7a3b468b9, type: 3}
+      propertyPath: moveSpeed
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 3227405418391399004, guid: 0a76399728d2a414b9fd49f7a3b468b9, type: 3}
       propertyPath: m_Name
       value: Player

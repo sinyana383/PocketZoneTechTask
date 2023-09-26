@@ -7,25 +7,26 @@ using UnityEngine.PlayerLoop;
 
 public class PlayerAimWeapon : MonoBehaviour
 {
-    public delegate void ShootEventHandler(Vector3 gunEndPointPosition, Vector3 shootDirection);
-    public delegate void AnotherEventHandler(ItemData data, int num);
     public static event ShootEventHandler OnShoot;
+    public delegate void ShootEventHandler(Vector3 gunEndPointPosition, Vector3 shootDirection);
     public static event AnotherEventHandler OnShootBullets;
+    public delegate void AnotherEventHandler(ItemData data, int num);
 
+    [SerializeField]public ItemData curBullets;
+    // potential add curWeapon ref
+    
     [SerializeField] private Transform aimTransform;
     [SerializeField] private Transform aimGunEndPointTransform;
+    private Vector3 direction = Vector3.right;
     
     private Animator aimAnimator;
     [SerializeField] private Animator camAnimator;
     
     [SerializeField] float fireRate = 2f;
     private WaitForSeconds shootDelay;
-    private Vector3 direction = Vector3.right;
 
     private bool haveBullets = false;
 
-    [SerializeField]public ItemData curBullets;
-    // may add curWeapon ref
 
     private void OnEnable()
     {
@@ -51,8 +52,7 @@ public class PlayerAimWeapon : MonoBehaviour
 
         Vector3 aimDirection = dir.normalized;
         aimDirection.z = 0f;
-
-        // TODO: LookAt() character realization needed
+        
         if (aimDirection.x != 0 || aimDirection.y != 0)
             direction = aimDirection;
         else
@@ -74,7 +74,6 @@ public class PlayerAimWeapon : MonoBehaviour
         }
         aimTransform.localScale = aimLocalScale;
         transform.localScale = charLocalScale;
-        // playerLookAt.SetLookAtPosition(mousePosition);
     }
 
     public void Shoot()
@@ -84,8 +83,7 @@ public class PlayerAimWeapon : MonoBehaviour
         OnShoot?.Invoke(aimGunEndPointTransform.position, direction);
         OnShootBullets?.Invoke(curBullets, 1);
     }
-
-    // TODO: one shoot
+    
     public IEnumerator RapidFire()
     {
         // haveBullets

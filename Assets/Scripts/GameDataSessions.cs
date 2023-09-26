@@ -22,29 +22,21 @@ public static class GameDataSessions
             GameData loadedGameData = JsonUtility.FromJson<GameData>(json);
 
             gameData.playerDeathCount = loadedGameData.playerDeathCount;
-            // Use deathCount as needed (e.g., display it on a UI element)
         }
         else
         {
-            // If the file doesn't exist, initialize deathCount to 0
             gameData.playerDeathCount = 0;
-            // ...
         }
 
     }
 
+    // potential called on button click 
     public static void ClearData(string file)
     {
-        // Create an empty or default GameData object
         GameData defaultData = new GameData();
-    
-        // Serialize the default data to JSON
         string json = JsonUtility.ToJson(defaultData);
-
-        // Specify the file path
         string filePath = Application.persistentDataPath + file;
-
-        // Overwrite the existing file with the default data
+        
         System.IO.File.WriteAllText(filePath, json);
     }
 }

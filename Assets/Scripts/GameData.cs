@@ -6,4 +6,5 @@ using UnityEngine;
 public class GameData
 {
     public int playerDeathCount;
+    // potential add more session-between info
 }
