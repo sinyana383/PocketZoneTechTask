@@ -2,4 +2,4 @@
 
 ### Test on
 - [Android .apk](https://drive.google.com/file/d/1-j2RkYqUQpjM3P61SZ00cTkEFwNtMU19/view?usp=sharing)
-- [WebGL](https://inyan.itch.io/pocketzone)
+- [WebGL](https://inyan.itch.io/pocketzone)(Desktop only)
