@@ -13,15 +13,12 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private Transform ground;
 
     [SerializeField] private float health, maxHealth = 3f;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float viewDistance = 5f;
     [SerializeField] private float damage = 1f;
     [SerializeField] private float damageRate = 1f;
 
     private Transform target;
     private Vector2 moveDirection;
-
-    public bool isPlayerSpotted = false;
+    
     public bool isDamaging = false;
     
     private void Awake()
@@ -38,33 +35,7 @@ public class Enemy : MonoBehaviour, IDamageable
         uiHealthBar.UpdateHealthBar(health, maxHealth);
         StartCoroutine(RapidDamage(player.GetComponent<IDamageable>()));
     }
-
-    private void Update()
-    {
-        var distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance < viewDistance || isPlayerSpotted)
-            isPlayerSpotted = true;
-        else
-        {
-            if (distance > viewDistance + viewDistance)
-                isPlayerSpotted = false;
-            return;
-        }
-
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        
-        Vector3 enemyLocalScale = Vector3.one;
-        if (angle > 90 || angle < -90) {
-            enemyLocalScale.x = -1f;
-        } else {
-            enemyLocalScale.x = +1f;
-        }
-        transform.localScale = enemyLocalScale;
-        transform.position = Vector2.MoveTowards(transform.position,
-            player.transform.position, moveSpeed * Time.deltaTime);
-    }
+    
 
     public void TakeDamage(float damageAmount)
     {
@@ -76,7 +47,6 @@ public class Enemy : MonoBehaviour, IDamageable
             levelLogic.MinusEnemyCount();
             Destroy(gameObject);
         }
-        viewDistance += viewDistance;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
