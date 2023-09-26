@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // When smth happens with inventory it invokes ui changes
     public static event Action<List<InventoryItem>> OnInventoryChange;
     public static event EventHandler OnInventoryChangeToBullets;
     public delegate void EventHandler(bool state);
@@ -18,7 +17,7 @@ public class Inventory : MonoBehaviour
         AK74Bullets.OnAk74BulletsCollected += Add;
         MakarovPistol.OnMakarovPistolCollected += Add;
         PlayerAimWeapon.OnShootBullets += Remove;
-        UIInventorySlot.OnItemCompleteRemove += Remove;
+        UIInventorySlot.OnItemCompleteRemove += CompleteRemove;
     }
 
     private void OnDisable()
@@ -26,7 +25,7 @@ public class Inventory : MonoBehaviour
         AK74Bullets.OnAk74BulletsCollected -= Add;
         MakarovPistol.OnMakarovPistolCollected -= Add;
         PlayerAimWeapon.OnShootBullets -= Remove;
-        UIInventorySlot.OnItemCompleteRemove -= Remove;
+        UIInventorySlot.OnItemCompleteRemove -= CompleteRemove;
     }
 
     public void Add(ItemData itemData, int number)
@@ -44,7 +43,8 @@ public class Inventory : MonoBehaviour
             itemDictionary.Add(itemData, newItem);
             Debug.Log($"Added {itemData.displayName} to the inventory");
             OnInventoryChange?.Invoke(inventory);
-            OnInventoryChangeToBullets?.Invoke(true);
+            if (itemData.isBullet)
+                OnInventoryChangeToBullets?.Invoke(true);
         }
     }
 
@@ -57,7 +57,8 @@ public class Inventory : MonoBehaviour
             {
                 inventory.Remove(invItem);
                 itemDictionary.Remove(itemData);
-                OnInventoryChangeToBullets?.Invoke(false);
+                if (itemData.isBullet)
+                    OnInventoryChangeToBullets?.Invoke(false);
             }
             OnInventoryChange?.Invoke(inventory);
         }
@@ -70,7 +71,8 @@ public class Inventory : MonoBehaviour
         {
             inventory.Remove(invItem);
             itemDictionary.Remove(itemData);
-            OnInventoryChangeToBullets?.Invoke(false);
+            if (itemData.isBullet)
+                OnInventoryChangeToBullets?.Invoke(false);
             OnInventoryChange?.Invoke(inventory);
         }
     }

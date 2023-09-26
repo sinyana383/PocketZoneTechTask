@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIInventorySlot : MonoBehaviour
 {
-    public delegate void EventHandler(ItemData data, int num);
+    public delegate void EventHandler(ItemData data);
     public static event EventHandler OnItemCompleteRemove;
 
     [SerializeField] private GameObject delButton;
@@ -23,7 +23,7 @@ public class UIInventorySlot : MonoBehaviour
     public void CompleteRemoveItem()
      {
         if (curItem != null)
-            OnItemCompleteRemove?.Invoke(curItem.itemData, curItem.stackSize);
+            OnItemCompleteRemove?.Invoke(curItem.itemData);
         delButton.SetActive(false);
     }
     public void ClearSlot()
